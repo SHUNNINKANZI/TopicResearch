@@ -60,4 +60,6 @@ c:\users\sonphan\documents\visual studio 2015\Projects\SPAResearch\CustomerServi
 c:\users\sonphan\documents\visual studio 2015\Projects\SPAResearch\CustomerServices\bin\Antlr3.Runtime.pdb
 c:\users\sonphan\documents\visual studio 2015\Projects\SPAResearch\CustomerServices\obj\Debug\CustomerServices.dll
 c:\users\sonphan\documents\visual studio 2015\Projects\SPAResearch\CustomerServices\obj\Debug\CustomerServices.pdb
-C:\Users\sonphan\documents\visual studio 2015\Projects\SPAResearch\CustomerServices\obj\Debug\CustomerServices.csprojResolveAssemblyReference.cache
+C:\Users\sonphan\documents\visual studio 2015\Projects\SPAResearch\CustomerServices\bin\System.Web.Cors.dll
+C:\Users\sonphan\documents\visual studio 2015\Projects\SPAResearch\CustomerServices\bin\System.Web.Http.Cors.dll
+C:\Users\sonphan\documents\visual studio 2015\Projects\SPAResearch\CustomerServices\bin\System.Web.Http.Cors.xml

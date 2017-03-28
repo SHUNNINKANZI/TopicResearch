@@ -7,4 +7,5 @@ CustomerService.factory('CustomerApi', function ($http) {
     CusApi.getCustomers = function () {
         return $http.get(urlBase + '/Customers');
     };
+    return CusApi;
 });

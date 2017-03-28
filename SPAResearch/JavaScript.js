@@ -41,15 +41,17 @@ MyApp.controller("DeleteController", function ($scope) {
 MyApp.controller("HomeController", function ($scope, CustomerApi) {
    
     getCustomers();
+    $scope.customers = [];
     function getCustomers() {
-        CustomerApi.getCustomers().success(function (customers)
+        CustomerApi.getCustomers()
+        .then(function (customers)
         {
-            $scope.customers = customers;
+            $scope.customers.data = customers.data;
         })
-        .error(function(error)
-        {
-            $scope.status = 'Unable to load customer data: ' + error.message;
+        //.error(function(error)
+        //{
+        //    $scope.status = 'Unable to load customer data: ' + error.message;
 
-        })
+        //})
     }
 });
