@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="Content//bootstrap.css" rel="stylesheet"/>
+    <script src="Scripts/jquery-1.9.0.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="services.js"></script>
+    <script src="JavaScript.js"></script>
+</head>
+<body >
+    <div class="container">
+        <nav role="navigation" class="navbar navbar-inverse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a ng-href="#!">Home</a></li>
+                <li><a ng-href="#!Add">Add</a></li>
+                <li><a ng-href="#!Edit">Edit</a></li>
+                <li><a ng-href="#!Delete">Delete</a></li>
+            </ul>
+        </nav>
+
+        <div ng-view>
+            </div>
+    </div>
+</body>
+</html>
