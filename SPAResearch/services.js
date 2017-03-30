@@ -7,5 +7,22 @@ CustomerService.factory('CustomerApi', function ($http) {
     CusApi.getCustomers = function () {
         return $http.get(urlBase + '/Customers');
     };
+    CusApi.deleteCustomers = function (empsId) {
+        console.log(JSON.stringify(empsId));
+        var id = JSON.stringify(empsId);
+      //  $http.delete(urlBase+'/Customers/DeleteCustomer', JSON.stringify(empsId))
+       // return $http.delete(urlBase + '/Customers/DeleteCustomer', { id: JSON.stringify(empsId) });
+        //return $http.post(urlBase + '/Customers/DeleteCustomer', (empsId));
+        var request = $http({
+            method: 'delete',
+          
+            url: urlBase + '/Customers/'+empsId ,
+          
+        });
+
+        return request;
+    };
     return CusApi;
 });
+
+

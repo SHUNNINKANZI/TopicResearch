@@ -1,6 +1,13 @@
-﻿<div class="row">
-    <input type="text" placeholder="Type to filter" class="input-lg form-control" ng-model="txtFilter" />
-    <table class="table table-striped">
+﻿<div class="row" ng-controller="DeleteController">
+    <div class="form-group">
+        <input type="text" placeholder="Type to filter" class="input-lg form-control" ng-model="txtFilter" />
+
+    </div>
+   
+    <div class="pull-right">
+        <input type="submit" value="Delete" class="btn btn-danger" ng-click="delete(selected)" />
+    </div>
+    <table class="table" >
         <thead>
             <tr>
                 <th>Firstname</th>
@@ -27,7 +34,14 @@
                 <td>
                     {{customer.Address}}
                 </td>
+                
+                <td>
+                    <a ng-click="delete(customer.CustomerID)">Delete</a>
+                </td>
             </tr>
         </tbody>
+    
+        {{status}}
     </table>
+   
 </div>

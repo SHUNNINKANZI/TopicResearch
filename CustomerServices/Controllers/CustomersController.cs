@@ -19,6 +19,7 @@ namespace CustomerServices.Models
         // GET: api/Customers
         public IQueryable<Customer> GetCustomers()
         {
+            System.Diagnostics.Debug.Write("asas");
             return db.Customers;
         }
 
@@ -86,6 +87,7 @@ namespace CustomerServices.Models
         }
 
         // DELETE: api/Customers/5
+
         [ResponseType(typeof(Customer))]
         public IHttpActionResult DeleteCustomer(int id)
         {

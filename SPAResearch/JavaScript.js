@@ -35,23 +35,70 @@ MyApp.controller("AddController", function ($scope)
 MyApp.controller("EditController", function ($scope) {
     $scope.message = "Editview";
 });
-MyApp.controller("DeleteController", function ($scope) {
+MyApp.controller("DeleteController", function ($scope,CustomerApi) {
     $scope.message = "deleteview";
+    
+
 });
 MyApp.controller("HomeController", function ($scope, CustomerApi) {
-   
+    
     getCustomers();
     $scope.customers = [];
+
     function getCustomers() {
         CustomerApi.getCustomers()
         .then(function (customers)
         {
+            console.log(customers);
             $scope.customers.data = customers.data;
-        })
-        //.error(function(error)
-        //{
-        //    $scope.status = 'Unable to load customer data: ' + error.message;
+        },function(error){
+            $scope.status = 'Unable to load customer data: ' + error.message;
+        });
+        $scope.selected = [];
 
-        //})
+        $scope.toggle = function (item, list) {
+         
+            var idx = list.indexOf(item);
+            if (idx > -1) {
+
+                list.splice(idx, 1);
+            }
+            else {
+              
+                list.push(item);
+            }
+
+        };
+        $scope.exists = function (item, list) {
+            return list.indexOf(item) > -1;
+        };
+
+        //Check All Customer to delete
+        $scope.checkAll = function (customersData) {
+            if (!$scope.selectedAll) {
+                $scope.selectedAll = true;
+            } else {
+                $scope.selectedAll = false;
+                $scope.selected = [];
+            }
+            angular.forEach(customersData, function (value,key) {
+                $scope.Selected = $scope.selectedAll;
+                if ($scope.selectedAll) {
+                    $scope.selected.push(value["CustomerID"]);
+                }
+            });
+        }
+       
     }
+    $scope.delete = function (items) {
+        if (confirm("Do you want to delete ?")) {
+            CustomerApi.deleteCustomers(items).then(function () {
+                getCustomers();
+            },function(error){
+                $scope.status = "Something wrong : " + error.message;
+            })
+        }
+        
+    };
+    
 });
